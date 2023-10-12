@@ -14,7 +14,7 @@ echo -e "\n\nTo commit the solution to GitHub the followed commands will be issu
 echo -e '> git add .'
 echo -e '> git commit -m "Added solution for $1"'
 echo -e '> git push origin\n'
-echo -e "Don/'t forget to save the files!"
+echo -e "Don/'t forget to save the files"
 read -p "Press any key then ready... " -n1 -s
 
 git add .
