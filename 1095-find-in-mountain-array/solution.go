@@ -1,3 +1,4 @@
+
 /**
  * // This is the MountainArray's API interface.
  * // You should not implement it, or speculate about its implementation
@@ -8,7 +9,8 @@
  * func (this *MountainArray) length() int {}
  */
 
- func findInMountainArray(target int, mountainArr *MountainArray) int {
+
+func findInMountainArray(target int, mountainArr *MountainArray) int {
     pIdx := findPeakIndex(mountainArr)
     maLen := mountainArr.length()
 
