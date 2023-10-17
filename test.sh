@@ -31,17 +31,20 @@ dirname=$(printf "%04d" "$num"; echo "" $title | tr "[:upper:]" "[:lower:]" | tr
 
 for solution in $(ls -d */)
 do
-    num=${solution:0:4}
-    to_value=$(printf "%04d" $((((num-1) / 100 + 1) * 100)))
-    from_value=$(printf "%04d" $((((num-1) / 100 + 1) * 100 - 99)))
-    dir_to_put=$(printf "from-%s-to-%s" "$from_value" "$to_value")
+    num=$(expr ${solution:0:4} - 1)
+    to_val=$(( $(($num / 100 + 1 )) * 100 ))
+    from_val=$(( $(( $(($num / 100 + 1 )) * 100 )) - 99 ))
+
+    # to_value=$(printf "%04d" $((((num - 1) / 100 + 1) * 100)))
+    # from_value=$(printf "%04d" $((((num - 1) / 100 + 1) * 100 - 99)))
+    dir_to_put=$(printf "from-%04d-to-%04d" "$from_val" "$to_val")
     echo $num "--->" $dir_to_put
 
     if [ ! -d $dir_to_put ] 
     then
         mkdir $dir_to_put
     fi
-    mkdir $dir_to_put/$solution
+    # mkdir $dir_to_put/$solution
 
-    mv -v $solution ./$dir_to_put/$solution/
+    mv -v $solution ./$dir_to_put/
 done
