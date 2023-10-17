@@ -11,16 +11,7 @@ num="${input%.*}"
 title="${input#*.}"
 # echo $num
 # echo $title
-# -----------------
-# for num in 1 2 98 99 100 101 102 198 199 200 201 202 298 299 300 301 302
-# do
-#     to_value=$(printf "%04d" $((((num-1) / 100 + 1) * 100)))
-#     from_value=$(printf "%04d" $((((num-1) / 100 + 1) * 100 - 99)))
-#     # echo 'From' $from_value 'To' $to_value
-#     dir_to_put=$(printf "from-%s-to-%s" "$from_value" "$to_value")
-#     echo $num "--->" $dir_to_put
-# done
-# -----------------
+
 dirname=$(printf "%04d" "$num"; echo "" $title | tr "[:upper:]" "[:lower:]" | tr " " "-")
 # echo $dirname
 
@@ -35,8 +26,6 @@ do
     to_val=$(( $(($num / 100 + 1 )) * 100 ))
     from_val=$(( $(( $(($num / 100 + 1 )) * 100 )) - 99 ))
 
-    # to_value=$(printf "%04d" $((((num - 1) / 100 + 1) * 100)))
-    # from_value=$(printf "%04d" $((((num - 1) / 100 + 1) * 100 - 99)))
     dir_to_put=$(printf "from-%04d-to-%04d" "$from_val" "$to_val")
     echo $num "--->" $dir_to_put
 
@@ -44,7 +33,6 @@ do
     then
         mkdir $dir_to_put
     fi
-    # mkdir $dir_to_put/$solution
 
     mv -v $solution ./$dir_to_put/
 done
