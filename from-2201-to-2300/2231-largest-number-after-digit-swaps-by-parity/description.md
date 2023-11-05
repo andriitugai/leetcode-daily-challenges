@@ -23,4 +23,4 @@ Note that there may be other sequences of swaps but it can be shown that 87655 i
 
 **Constraints:**
 
-*   `1 <= num <= 109`
+* 1 <= num <= 10<sup>9</sup>
