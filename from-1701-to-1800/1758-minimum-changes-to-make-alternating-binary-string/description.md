@@ -28,3 +28,6 @@ Return _the **minimum** number of operations needed to make_ `s` _alternating_.
 
 *   `1 <= s.length <= 104`
 *   `s[i]` is either `'0'` or `'1'`.
+### 1758\. Minimum Changes To Make Alternating Binary String
+
+
