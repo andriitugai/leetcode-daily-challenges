@@ -27,9 +27,9 @@ do
         if [ ! -d "$dir_to_put/$dirname" ]
         then
             mkdir $dir_to_put/$dirname
+            echo -e "### $header\n\n" >> $dir_to_put/$dirname/description.md
         fi
         
-        echo -e "### $header\n\n" >> $dir_to_put/$dirname/description.md
         touch $dir_to_put/$dirname/solution.py
         touch $dir_to_put/$dirname/solution.go
 
