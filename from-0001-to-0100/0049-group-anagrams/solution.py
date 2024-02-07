@@ -1,4 +1,4 @@
-lass Solution:
+Class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         groups = collections.defaultdict(list)
         for word in strs:
