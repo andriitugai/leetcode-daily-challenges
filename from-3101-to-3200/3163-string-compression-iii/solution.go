@@ -1,25 +1,16 @@
 func compressedString(word string) string {
     result := []string{}
-    currChar := word[0]
-    currCount := 1
-    flush := func() {
-        if currCount > 0 {
-            result = append(result, fmt.Sprintf("%d%s", currCount, string(currChar)))
-        }
-    }
+    curC := word[0]
+    cnt := 1
     for i := 1; i < len(word); i ++ {
-        if word[i] != currChar {
-            flush()
-            currChar = word[i]
-            currCount = 1
+        if word[i] == curC && cnt < 9 {
+            cnt += 1
         } else {
-            currCount += 1
-            if currCount == 9 {
-                flush()
-                currCount = 0
-            }
+            result = append(result, fmt.Sprintf("%d%c", cnt, curC))
+            curC = word[i]
+            cnt = 1
         }
     }
-    flush()
+    result = append(result, fmt.Sprintf("%d%c", cnt, curC))
     return strings.Join(result, "")
 }
