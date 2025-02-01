@@ -1,6 +1,9 @@
 class Solution:
     def isArraySpecial(self, nums: List[int]) -> bool:
-        for i in range(1, len(nums)):
-            if (nums[i-1] % 2) ^ (nums[i] % 2) == 0:
+        prev = nums[0] & 1
+        for num in nums[1:]:
+            curr = num & 1
+            if curr == prev:
                 return False
+            prev = curr
         return True

@@ -1,8 +1,12 @@
 func isArraySpecial(nums []int) bool {
-    for i := 1; i < len(nums); i ++ {
-        if (nums[i - 1] % 2) ^ (nums[i] % 2) == 0 {
+    prev := nums[0] & 1
+    var curr int
+    for _, num := range(nums[1:]) {
+        curr = num & 1
+        if prev == curr {
             return false
         }
+        prev = curr
     }
     return true
 }
